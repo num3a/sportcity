@@ -56,12 +56,21 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-      .state('app.searchCoach',{
-        url:"/searchCoach",
+      .state('app.coach',{
+        url:"/coach",
         views:{
           'menuContent':{
-            templateUrl: "templates/searchCoach.html",
-            controller : 'SearchCoachCtrl'
+            templateUrl: "templates/coach/list.html",
+            controller : 'CoachListCtrl'
+          }
+        }
+      })
+      .state('app.coachDetail',{
+        url:"/coach/detail/:coachId",
+        views:{
+          'menuContent':{
+            templateUrl: "templates/coach/detail.html",
+            controller : 'CoachDetailCtrl'
           }
         }
       })
