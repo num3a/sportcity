@@ -1,0 +1,17 @@
+
+<ion-view view-title="Payment">
+    <ion-content>
+        <ion-list class="list">
+            <ion-item class="item item-thumbnail-left" href="#" ng-repeat="card in cards" >
+                <img ng-src="/img/payment/{{card.type}}.png" alt=""/>
+                <h2>{{card.name}}</h2>
+                <span>Type: <strong>{{card.type}}</strong></span><br/><span>Last 4 digits: <strong>{{card.lastDigit}}</strong></span>
+            </ion-item>
+
+            <ion-item class="item item-thumbnail-left" href="#" ng-repeat="account in paypalAccounts" >
+                <img ng-src="/img/payment/paypal.png" alt=""/>
+                <h2>{{account}}</h2>
+              </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

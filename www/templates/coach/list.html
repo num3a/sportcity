@@ -1,10 +1,10 @@
-<ion-view view-title="Get a coach">
+<ion-view view-title="Find a coach">
     <ion-content>
     <ion-list class="list">
     <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
   </ion-refresher>
             <ion-item class="item item-thumbnail-left" href="#/app/coach/detail/339039" ng-repeat="coach in coachList" >
-                <img ng-src="{{item.image}}">
+                <img ng-src="{{coach.image}}">
                 <h2>{{coach.firstName}} {{coach.lastName}}</h2>
                 <p>{{coach.activity}}</p>
             </ion-item>
