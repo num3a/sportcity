@@ -114,11 +114,10 @@ angular.module('starter.controllers', ['ionic'])
                 duration : 3500
               });
               
-            }
-  
+            };
 })
 
-.controller('CoachListCtrl',function($scope){
+.controller('CoachListCtrl',function($scope, $timeout){
 
       var mockData = [];
       for(var i = 0; i < 30; i++){
@@ -133,4 +132,9 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.coachList = mockData;
+      $scope.doRefresh = function(){
+        $timeout(function(){
+          $scope.$broadcast('scroll.refreshComplete');
+        },1500);
+      };
 });
