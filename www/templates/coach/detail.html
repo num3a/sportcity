@@ -1,16 +1,23 @@
 <ion-view view-title="CoachDetail">
     <ion-content>
-        <div class="card">
-             <div class="item item-divider">
- {{coach.firstName}} {{coach.lastName}}
-  </div>
-         <div class="item item-avatar">
+    <div class="card">
+        <div class="item item-divider">
+            {{coach.firstName}} {{coach.lastName}}
+        </div>
+        <div class="item item-avatar">
             <img ng-src="{{coach.image}}">
             <span >Activitie: <strong>{{coach.activity}}</strong> </span>
             <br>
             <button class="button button-clear button-positive" ng-click="showResume()">Show resume</button>
         </div>
+        <div class="item item-divider">
+        <div>
+            <span>Rating: </span>
+        
+            <i ng-repeat="t in getStarsCount() track by $index" class="icon ion-star calm"></i>
         </div>
+        </div>
+    </div>
         
         <h2>Avalaible sessions:</h2>
         <div class="list" >
