@@ -1,12 +1,25 @@
 <ion-view view-title="CoachDetail">
     <ion-content>
+        <div class="card">
+             <div class="item item-divider">
+ {{coach.firstName}} {{coach.lastName}}
+  </div>
+         <div class="item item-avatar">
+            <img ng-src="{{coach.image}}">
+            <span >Activitie: <strong>{{coach.activity}}</strong> </span>
+            <br>
+            <button class="button button-clear button-positive" ng-click="showResume()">Show resume</button>
+        </div>
+        </div>
         
-
-            <a class="item item-thumbnail-left" href="#" >
-                <img ng-src="{{item.image}}">
-                <h2>{{firstName}} {{lastName}}</h2>
-                <p>{{activity}}</p>
-            </a>
-        
+        <h2>Avalaible sessions:</h2>
+        <div class="list" >
+            <div class="item item-button-right" ng-repeat="session in sessions">
+            Duration: {{session.durationInMinutes}} minutes <span class="badge badge-calm" >{{session.price}} €</span>
+            <button class="button button-balanced" ng-click="sessionCheckIn()">
+                <i class="icon ion-checkmark-round"></i>
+            </button>
+            </div>
+        </div>
     </ion-content>
 </ion-view>
