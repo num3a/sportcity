@@ -8,7 +8,8 @@ angular.module('starter.controllers', ['ionic'])
         // listen for the $ionicView.enter event:
         //$scope.$on('$ionicView.enter', function(e) {
         //});
-
+            
+        
         // Form data for the login modal
         $scope.loginData = {};
 
@@ -44,6 +45,23 @@ angular.module('starter.controllers', ['ionic'])
             console.log('user is not loggingIn');
             return false;
         };
+        
+        var getConnectedCoaches = function(){
+            var mockData = [];
+            for(var i = 0; i < 30; i++){
+                var coach =
+                {
+                    id: i,
+                    firstName: "Robert",
+                    lastName : "Henry",
+                    activity : "Running",
+                    image : 'img/fake/coach-1.jpg'
+                };
+                mockData.push(coach);
+            }
+            return mockData;
+        };
+        $scope.connectedCoaches = getConnectedCoaches();
     })
 
     .controller('PlaylistsCtrl', function($scope) {
