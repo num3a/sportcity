@@ -69,6 +69,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
               }
             }
           })
+          .state('app.talk',{
+              url:"/chat/talk/:talkId",
+              views:{
+                  'menuContent':{
+                      templateUrl: "templates/chat/talk.html",
+                      controller : 'TalkCtrl'
+                  }
+              }
+          })
           .state('app.payment',{
             url:"/payment",
             views:{

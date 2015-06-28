@@ -164,6 +164,16 @@ angular.module('starter.controllers', ['ionic'])
             },1500);
         };
     })
+    .controller('TalkCtrl',function($scope){
+        var messages = [];
+
+        for(var i = 0; i < 40; i++){
+            messages.push(
+                {  sender : 'Henry',
+                text : 'helloworld'});
+        }
+        $scope.messages = messages;
+    })
     .controller('PaymentListCtrl', function($scope,$timeout){
         $scope.paypalAccounts = [
             'emmanuel.ernest@hotmail.fr',
