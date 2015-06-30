@@ -77,6 +77,10 @@ angular.module('starter.controllers', ['ionic','ngMap'])
 
     .controller('PlaylistCtrl', function($scope, $stateParams) {
     })
+    .controller('MainCtrl', function($scope, $ionicTabsDelegate) {
+         $ionicTabsDelegate.select(0);
+    })
+    
     .controller('MapCtrl', function($scope, $stateParams) {
     })
     .controller('CoachDetailCtrl', function($scope, $stateParams,$ionicPopup, $timeout, $ionicLoading) {

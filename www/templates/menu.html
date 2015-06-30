@@ -26,6 +26,9 @@
                 <ion-item menu-close ng-click="login()">
                     Login
                 </ion-item>
+                <ion-item menu-close href="#/app/main">
+                    Home
+                </ion-item>
                 <ion-item menu-close href="#/app/coach">
                     Find a coach
                 </ion-item>
@@ -65,7 +68,7 @@
         </ion-header-bar>
         <ion-content>
             <ion-list >
-                <ion-item menu-close ng-repeat="coach in connectedCoaches" href="#/app/chat/talk/4040">
+                <ion-item menu-close  ng-repeat="coach in connectedCoaches" href="#/app/chat/talk/4040">
                     <!--<img class="item item-avatar" ng-src="{{coach.image}}">-->
                     <h2>{{coach.firstName}} {{coach.lastName}}</h2>
                     <p>{{coach.activity}}</p>

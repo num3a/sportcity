@@ -96,6 +96,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
               }
             }
           })
+         .state('app.main',{
+                  url:"/main",
+                  views:{
+                    'menuContent':{
+                      templateUrl: "templates/home/main.html",
+                      controller : 'MainCtrl'
+                    }
+                  }
+                })
 
           .state('app.single', {
             url: "/playlists/:playlistId",
@@ -107,5 +116,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
           });
       // if none of the above states are matched, use this as the fallback
-      $urlRouterProvider.otherwise('/app/coach');
+      $urlRouterProvider.otherwise('/app/main');
     });
