@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic'])
+angular.module('starter.controllers', ['ionic','ngMap'])
 
     .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -76,6 +76,8 @@ angular.module('starter.controllers', ['ionic'])
     })
 
     .controller('PlaylistCtrl', function($scope, $stateParams) {
+    })
+    .controller('MapCtrl', function($scope, $stateParams) {
     })
     .controller('CoachDetailCtrl', function($scope, $stateParams,$ionicPopup, $timeout, $ionicLoading) {
         var coach =  {

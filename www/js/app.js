@@ -69,6 +69,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
               }
             }
           })
+          .state('app.map',{
+              url:"/map",
+              views:{
+                  'menuContent':{
+                      templateUrl: "templates/map/coachMap.html",
+                      controller : 'MapCtrl'
+                  }
+              }
+          })
           .state('app.talk',{
               url:"/chat/talk/:talkId",
               views:{
