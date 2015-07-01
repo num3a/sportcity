@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('spty', ['ionic', 'spty.controllers'])
     .run(function($ionicPlatform) {
       $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -23,39 +23,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           .state('app', {
             url: "/app",
             abstract: true,
-            templateUrl: "templates/menu.html",
+            templateUrl: "components/shared/menu/menuView.html",
             controller: 'AppCtrl'
-          })
-          .state('app.search', {
-            url: "/search",
-            views: {
-              'menuContent': {
-                templateUrl: "templates/search.html"
-              }
-            }
-          })
-          .state('app.browse', {
-            url: "/browse",
-            views: {
-              'menuContent': {
-                templateUrl: "templates/browse.html"
-              }
-            }
-          })
-          .state('app.playlists', {
-            url: "/playlists",
-            views: {
-              'menuContent': {
-                templateUrl: "templates/playlists.html",
-                controller: 'PlaylistsCtrl'
-              }
-            }
           })
           .state('app.coach',{
             url:"/coach",
             views:{
               'menuContent':{
-                templateUrl: "templates/coach/list.html",
+                templateUrl: "components/coach/listCoachView.html",
                 controller : 'CoachListCtrl'
               }
             }
@@ -64,7 +39,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             url:"/coach/detail/:coachId",
             views:{
               'menuContent':{
-                templateUrl: "templates/coach/detail.html",
+                templateUrl: "components/coach/detailCoachView.html",
                 controller : 'CoachDetailCtrl'
               }
             }
@@ -73,8 +48,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
               url:"/map",
               views:{
                   'menuContent':{
-                      templateUrl: "templates/map/coachMap.html",
-                      controller : 'MapCtrl'
+                      templateUrl: "components/coach/coachMapView.html",
+                      controller : 'CoachMapCtrl'
                   }
               }
           })
@@ -82,7 +57,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
               url:"/chat/talk/:talkId",
               views:{
                   'menuContent':{
-                      templateUrl: "templates/chat/talk.html",
+                      templateUrl: "components/chat/talkView.html",
                       controller : 'TalkCtrl'
                   }
               }
@@ -91,7 +66,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             url:"/payment",
             views:{
               'menuContent':{
-                templateUrl: "templates/payment/list.html",
+                templateUrl: "components/payment/listPaymentView.html",
                 controller : 'PaymentListCtrl'
               }
             }
@@ -100,21 +75,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                   url:"/main",
                   views:{
                     'menuContent':{
-                      templateUrl: "templates/home/main.html",
-                      controller : 'MainCtrl'
+                      templateUrl: "components/home/homeView.html",
+                      controller : 'HomeCtrl'
                     }
                   }
-                })
-
-          .state('app.single', {
-            url: "/playlists/:playlistId",
-            views: {
-              'menuContent': {
-                templateUrl: "templates/playlist.html",
-                controller: 'PlaylistCtrl'
-              }
-            }
-          });
+                });
       // if none of the above states are matched, use this as the fallback
       $urlRouterProvider.otherwise('/app/main');
     });
