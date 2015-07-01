@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic','ngMap'])
+angular.module('starter.controllers', ['ionic','ngMap','home'])
 
     .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
