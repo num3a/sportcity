@@ -62,6 +62,15 @@ angular.module('spty', ['ionic', 'spty.controllers'])
                   }
               }
           })
+          .state('app.trainerOnly',{
+                url: '/trainerOnly',
+                views:{
+                    'menuContent':{
+                        templateUrl : 'components/trainer/trainerOnlyView.html',
+                        controller : 'TrainerCtrl'
+                    }
+                }
+          })
           .state('app.payment',{
             url:"/payment",
             views:{
