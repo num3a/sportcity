@@ -7,7 +7,8 @@ angular.module('spty.controllers',
         'payment',
         'chat',
         'trainer',
-        'spty.utils'
+        'spty.utils',
+        'spty.services'
     ])
     .controller('AppCtrl', function($scope, $ionicModal, $timeout, $localstorage) {
 
