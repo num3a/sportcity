@@ -2,6 +2,22 @@
 <ion-view view-title="Trainer">
     <ion-content>
 <h3>Check-in:</h3>
-        <button class="button button-positive">I'm here !!</button>
+<form ng-submit="doCheckIn()">
+
+
+  <div class="list">
+    <label class="item item-input item-select">
+    <div class="input-label">
+      Activity:
+    </div>
+    <select ng-model="checkinData.activity" ng-init="selectedActivity = selectedActivity || activities[0]"
+                             ng-options="item as item.name for item in activities" ng-required>
+                     </select>
+  </label>
+  <div clas="item">
+    <button class="button button-positive">I'm here !!</button>
+    </div>
+  </div>
+</form>
     </ion-content>
 </ion-view>
