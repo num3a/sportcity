@@ -1,4 +1,4 @@
-angular.module('coach',['ionic'])
+angular.module('coach',['ionic', 'spty.utils'])
  .controller('CoachListCtrl',function($scope, $timeout){
 
         var mockData = [];
@@ -21,7 +21,27 @@ angular.module('coach',['ionic'])
             },1500);
         };
     })
-        .controller('CoachDetailCtrl', function($scope, $stateParams,$ionicPopup, $timeout, $ionicLoading) {
+        .controller('CoachDetailCtrl', function($scope, $stateParams,$ionicPopup, $timeout, $ionicLoading,$http, $localstorage) {
+            var serviceUrl = $localstorage.get('serviceUrl');
+
+            var location = {
+                longitude : 10,
+                latitude : 10
+            };
+            var getBookings = function(){
+                $http.get('/booking/around', location).
+                    success(function(data, status, headers, config) {
+                        // this callback will be called asynchronously
+                        // when the response is available
+                        $scope.sessions = data;
+                    }).
+                    error(function(data, status, headers, config) {
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                    });
+        };
+        
+        
         var coach =  {
             id: 339039,
             firstName: "Robert",
@@ -52,7 +72,7 @@ angular.module('coach',['ionic'])
                 price : 40
             },
         ];
-
+        
         $scope.coach = coach;
 
         $scope.getStarsCount = function(){
@@ -62,7 +82,7 @@ angular.module('coach',['ionic'])
             return new Array(roundedScore);
         };
 
-        $scope.sessions = sessions;
+        $scope.bookings = getBookings();
 
         $scope.showResume = function() {
 
