@@ -29,19 +29,22 @@ angular.module('coach',['ionic', 'spty.utils'])
                 latitude : 10
             };
             var getBookings = function(){
-                $http.get('/booking/around', location).
+                $http.get(serviceUrl + '/booking/around', location).
                     success(function(data, status, headers, config) {
-                        // this callback will be called asynchronously
-                        // when the response is available
-                        $scope.sessions = data;
+                  
+                        $scope.bookings = data;
+                        
+                        console.log('bookings successfully retrieved: ', data);
                     }).
                     error(function(data, status, headers, config) {
                         // called asynchronously if an error occurs
                         // or server returns response with an error status.
+                        
+                        console.log('An error occurs when retrieving bookings', data);
                     });
         };
         
-        
+        getBookings();
         var coach =  {
             id: 339039,
             firstName: "Robert",
@@ -82,7 +85,7 @@ angular.module('coach',['ionic', 'spty.utils'])
             return new Array(roundedScore);
         };
 
-        $scope.bookings = getBookings();
+        
 
         $scope.showResume = function() {
 
