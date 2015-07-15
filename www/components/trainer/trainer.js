@@ -1,6 +1,7 @@
-angular.module('trainer',['ionic', 'spty.utils'])
-    .controller('TrainerCtrl', function($scope,$timeout,$http, $localstorage){
+angular.module('trainer',['ionic', 'spty.utils','ngCordova'])
+    .controller('TrainerCtrl', function($scope,$timeout,$http, $localstorage, $ionicPlatform, $ionicLoading,$cordovaGeolocation){
       var serviceUrl = $localstorage.get('serviceUrl');
+
 
       $http.get(serviceUrl + '/healthcheck').
        success(function(data) {
@@ -43,4 +44,38 @@ angular.module('trainer',['ionic', 'spty.utils'])
         // or server returns response with an error status.
         });
        }
+
+         var initialization = function(){
+
+             $ionicLoading.show({
+                 template : 'Get location ...'
+             });
+             $ionicPlatform.ready(function() {
+                 var posOptions = {timeout: 10000, enableHighAccuracy: false};
+                 $cordovaGeolocation
+                     .getCurrentPosition(posOptions)
+                     .then(function (position) {
+                         var location = {
+                             latitude : position.coords.latitude,
+                             longitude : position.coords.longitude
+                         };
+
+                        $localstorage.set('location', location);
+
+                         console.log('success location : ', location);
+
+                     }, function(err) {
+                         // error
+                         $ionicLoading.hide();
+
+                     })
+                     .then(function(){
+                         $ionicLoading.hide();
+                     });
+
+             });
+         };
+
+        initialization();
      });
+
